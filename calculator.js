@@ -39,10 +39,18 @@ const digits = document.querySelectorAll(".digit");
 a = "";
 b= "";
 
+let shouldResetDisplay = false;
+
 digits.forEach((button) => {
     button.addEventListener("click", function() {
         if (display.textContent.length < 12) {
-            display.textContent += button.textContent;
+            if (shouldResetDisplay) {
+                display.textContent = button.textContent;
+                shouldResetDisplay = false;
+            }
+            else {
+                display.textContent += button.textContent;
+            }
             a = display.textContent;
             console.log("a:", a);
         }
