@@ -54,13 +54,25 @@ operator = "";
 
 operators.forEach((button) => {
     button.addEventListener("click", function() {
-        operator = button.textContent;
-        if (b !==result) {
-        b = a;
+        if ( a !== "" && b !== "") {
+            b = operate(Number(a), Number(b));
+            display.textContent = b;
+            a = ""
         }
-        a = "";
-        display.textContent = "";
-        console.log("b:", b);
+        else if (b === "") {
+            b = a;
+            a = ""
+        }
+        shouldResetDisplay = true;
+        operator = button.textContent;
+        console.log("b:", b, "operator:", operator);
+        // operator = button.textContent;
+        // if (b !==result) {
+        // b = a;
+        // }
+        // a = "";
+        // display.textContent = "";
+        // console.log("b:", b);
     })
 })
 
@@ -68,17 +80,20 @@ const equals = document.querySelector(".equals");
 result = "neki"
 
 equals.addEventListener("click", function() {
-    x = Number(a);
-    y = Number(b);
-    result = Number(operate(x,y));
-    console.log(result);
-    display.textContent = result;
-    b = result;
+    if ( a !== "" && b !== "") {
+        b = operate(Number(a), Number(b));
+        display.textContent = b;
+        a = ""
+        operator = ""
+    }
 })
 
 const clear = document.querySelector(".clear");
 
 clear.addEventListener("click", function () {
     display.textContent = "";
-    a, b = "";
+    a = "";
+    b = "";
+    operator = "";
+
 })
