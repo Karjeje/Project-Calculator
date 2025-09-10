@@ -11,7 +11,13 @@ function multiply(a, b) {
       }
 
 function divide(a, b) {
-        return b / a;
+        if (a === 0) {
+            alert("Man, you are dumb as hell!");
+            return NaN;
+        }
+        else {
+            return b / a
+        }
       }
 
 let a
