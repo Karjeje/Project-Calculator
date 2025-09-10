@@ -3,7 +3,7 @@ function add(a, b) {
       }
 
 function subtract(a, b) {
-        return a - b;
+        return b - a;
       }
 
 function multiply(a, b) {
@@ -11,7 +11,7 @@ function multiply(a, b) {
       }
 
 function divide(a, b) {
-        return a / b;
+        return b / a;
       }
 
 let a
@@ -82,4 +82,3 @@ clear.addEventListener("click", function () {
     display.textContent = "";
     a, b = "";
 })
-
