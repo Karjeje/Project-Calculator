@@ -43,7 +43,7 @@ let shouldResetDisplay = false;
 
 digits.forEach((button) => {
     button.addEventListener("click", function() {
-        if (display.textContent.length < 12) {
+        if (display.textContent.length <= 12) {
             if (shouldResetDisplay) {
                 display.textContent = button.textContent;
                 shouldResetDisplay = false;
@@ -68,9 +68,9 @@ operators.forEach((button) => {
         else if (b === "") {
             b = a;
         }
-        else if (a !== "" && result !== null) {
-            b = a;
-        }
+        // else if (a !== "" && result !== null) {
+        //     b = a;
+        // }
         else if ( a !== "" && b !== "") {
             b = operate(Number(a), Number(b));
             display.textContent = b;
@@ -79,13 +79,6 @@ operators.forEach((button) => {
         operator = button.textContent;
         a = "";
         console.log("b:", b, "operator:", operator);
-        // operator = button.textContent;
-        // if (b !==result) {
-        // b = a;
-        // }
-        // a = "";
-        // display.textContent = "";
-        // console.log("b:", b);
     })
 })
 
@@ -94,6 +87,7 @@ const equals = document.querySelector(".equals");
 equals.addEventListener("click", function() {
     if ( a !== "" && b !== "") {
         result = operate(Number(a), Number(b));
+        result = Number(result.toFixed(10));
         display.textContent = result;
         a = ""
         b = result;
