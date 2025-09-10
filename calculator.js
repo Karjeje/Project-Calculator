@@ -76,3 +76,10 @@ equals.addEventListener("click", function() {
     b = result;
 })
 
+const clear = document.querySelector(".clear");
+
+clear.addEventListener("click", function () {
+    display.textContent = "";
+    a, b = "";
+})
+
