@@ -32,3 +32,16 @@ function add(a, b) {
             divide(a, b)
         }
       }
+
+      const display = document.querySelector(".display")
+      const digits = document.querySelectorAll(".digit")
+
+      const MAX_LENGTH = 12;
+
+      digits.forEach((button) => {
+        button.addEventListener("click", function() {
+            if (display.textContent.length < MAX_LENGTH) {
+              display.textContent += button.textContent;
+            }
+        })
+      })
