@@ -46,7 +46,7 @@ digits.forEach((button) => {
         if (display.textContent.length <= 12) {
             if (shouldResetDisplay) {
                 display.textContent = button.textContent;
-                shouldResetDisplay = false;
+                shouldResetDisplay = false; 
             }
             else {
                 display.textContent += button.textContent;
