@@ -46,11 +46,18 @@ a = "";
 b= "";
 let result = null;
 let shouldResetDisplay = false;
+let lastAction = null;
 
 digits.forEach((button) => {
     button.addEventListener("click", function() {
         if (display.textContent.length <= 12) {
-            if (shouldResetDisplay) {
+            if (lastAction === "equals") {
+                display.textContent = button.textContent;
+                b = "";
+                result = null;
+                operator = "";
+            }
+            else if (shouldResetDisplay || lastAction === "operator") {
                 display.textContent = button.textContent;
                 shouldResetDisplay = false; 
             }
@@ -58,6 +65,7 @@ digits.forEach((button) => {
                 display.textContent += button.textContent;
             }
             a = display.textContent;
+            lastAction = "digit";
             console.log("a:", a);
         }
     })
@@ -84,6 +92,7 @@ operators.forEach((button) => {
         shouldResetDisplay = true;
         operator = button.textContent;
         a = "";
+        lastAction = "operator";
         console.log("b:", b, "operator:", operator);
     })
 })
@@ -99,6 +108,7 @@ equals.addEventListener("click", function() {
         b = result;
         operator = ""
         shouldResetDisplay = true;
+        lastAction = "equals";
     }
 })
 
