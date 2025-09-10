@@ -34,6 +34,7 @@
     gap: 2px;
     justify-content: space-between;
     align-content: space-between;
+    box-sizing: border-box;
 }
 
 .button {
@@ -46,6 +47,6 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 80px;
+    font-size: 70px;
     
 }
