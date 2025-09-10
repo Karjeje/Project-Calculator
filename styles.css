@@ -10,7 +10,7 @@
 .display {
     box-sizing: border-box;
     background-color: black;
-    padding: 30px;
+    padding: 20px;
     width: 86%;
     height: 30%;
     margin: 0 auto;
@@ -48,5 +48,16 @@
     align-items: center;
     color: white;
     font-size: 70px;
-    
+}
+
+.equals {
+    background-color: blue;
+}
+
+.operator {
+    background-color: brown;
+}
+
+.clear {
+    background-color: red;
 }
