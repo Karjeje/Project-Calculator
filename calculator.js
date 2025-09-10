@@ -38,7 +38,7 @@ const digits = document.querySelectorAll(".digit");
 
 a = "";
 b= "";
-
+let result = null;
 let shouldResetDisplay = false;
 
 digits.forEach((button) => {
@@ -62,17 +62,22 @@ operator = "";
 
 operators.forEach((button) => {
     button.addEventListener("click", function() {
-        if ( a !== "" && b !== "") {
-            b = operate(Number(a), Number(b));
-            display.textContent = b;
-            a = ""
+        if (a === "" && result != null) {
+            b = result;
         }
         else if (b === "") {
             b = a;
-            a = ""
+        }
+        else if (a !== "" && result !== null) {
+            b = a;
+        }
+        else if ( a !== "" && b !== "") {
+            b = operate(Number(a), Number(b));
+            display.textContent = b;
         }
         shouldResetDisplay = true;
         operator = button.textContent;
+        a = "";
         console.log("b:", b, "operator:", operator);
         // operator = button.textContent;
         // if (b !==result) {
@@ -85,14 +90,15 @@ operators.forEach((button) => {
 })
 
 const equals = document.querySelector(".equals");
-result = "neki"
 
 equals.addEventListener("click", function() {
     if ( a !== "" && b !== "") {
-        b = operate(Number(a), Number(b));
-        display.textContent = b;
+        result = operate(Number(a), Number(b));
+        display.textContent = result;
         a = ""
+        b = result;
         operator = ""
+        shouldResetDisplay = true;
     }
 })
 
