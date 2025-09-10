@@ -55,7 +55,9 @@ operator = "";
 operators.forEach((button) => {
     button.addEventListener("click", function() {
         operator = button.textContent;
+        if (b !==result) {
         b = a;
+        }
         a = "";
         display.textContent = "";
         console.log("b:", b);
@@ -63,11 +65,14 @@ operators.forEach((button) => {
 })
 
 const equals = document.querySelector(".equals");
+result = "neki"
 
 equals.addEventListener("click", function() {
     x = Number(a);
     y = Number(b);
-    let result = operate(x,y);
+    result = Number(operate(x,y));
     console.log(result);
+    display.textContent = result;
+    b = result;
 })
 
